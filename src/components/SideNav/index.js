@@ -23,7 +23,8 @@ const Wrapper = styled.div`
   z-index: 9999;
   box-sizing: border-box;
   /* background-color: #1b1c22; */
-  background: linear-gradient(193.68deg, #8c6651 0.68%, rgb(112, 82, 64) 100.48%);
+  // background: linear-gradient(193.68deg, #8c6651 0.68%, rgb(112, 82, 64) 100.48%);
+  background-color: ${({ theme }) => theme.bg7};
   color: ${({ theme }) => theme.bg2};
 
   @media screen and (max-width: 800px) {
@@ -164,22 +165,22 @@ function SideNav({ history }) {
           </AutoColumn>
           <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem', marginBottom: '4rem' }}>
             <HeaderText>
-              <Link href="https://sushiswapclassic.org" target="_blank">
-                sushiswapclassic.org
+              <Link href="https://cityswap.io" target="_blank">
+                cityswap.io
               </Link>
             </HeaderText>
             <HeaderText>
-              <Link href="https://help.sushidocs.com/" target="_blank">
+              <Link href="https://cityswap.io/home/" target="_blank">
                 Docs
               </Link>
             </HeaderText>
+            {/*<HeaderText>*/}
+            {/*  <Link href="https://discord.gg/hJ2p555" target="_blank">*/}
+            {/*    Discord*/}
+            {/*  </Link>*/}
+            {/*</HeaderText>*/}
             <HeaderText>
-              <Link href="https://discord.gg/hJ2p555" target="_blank">
-                Discord
-              </Link>
-            </HeaderText>
-            <HeaderText>
-              <Link href="https://twitter.com/SushiSwap" target="_blank">
+              <Link href="https://twitter.com/cityswap_io" target="_blank">
                 Twitter
               </Link>
             </HeaderText>

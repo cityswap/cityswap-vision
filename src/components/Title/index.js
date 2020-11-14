@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { Flex } from 'rebass'
 import Link from '../Link'
 import { RowFixed } from '../Row'
-import Logo from '../../assets/logo_white.svg'
+import Logo from '../../assets/cityswap.png'
 import Wordmark from '../../assets/wordmark_white.svg'
 
 const TitleWrapper = styled.div`
@@ -25,6 +25,11 @@ const UniIcon = styled(Link)`
   }
 `
 
+const TitleText = styled.h2`
+  margin-left: 5px;
+  color: white;
+`
+
 export default function Title() {
   const history = useHistory()
 
@@ -35,7 +40,7 @@ export default function Title() {
           <UniIcon id="link" onClick={() => history.push('/')}>
             <img width={'24px'} src={Logo} alt="logo" />
           </UniIcon>
-          <img width={'84px'} style={{ marginLeft: '8px', marginTop: '0px' }} src={Wordmark} alt="logo" />
+          <TitleText>CitySwap</TitleText>
         </RowFixed>
       </Flex>
     </TitleWrapper>

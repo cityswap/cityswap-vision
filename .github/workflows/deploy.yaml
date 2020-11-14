@@ -1,4 +1,4 @@
-name: Upload sushiswap.vision
+name: Upload analytics.cityswap.exchange
 
 on:
   push:
