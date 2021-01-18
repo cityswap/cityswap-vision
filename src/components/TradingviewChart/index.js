@@ -13,7 +13,7 @@ dayjs.extend(utc)
 
 export const CHART_TYPES = {
   BAR: 'BAR',
-  AREA: 'AREA'
+  AREA: 'AREA',
 }
 
 const Wrapper = styled.div`
@@ -31,7 +31,7 @@ const TradingViewChart = ({
   field,
   title,
   width,
-  useWeekly = false
+  useWeekly = false,
 }) => {
   // reference for DOM element to create with chart
   const ref = useRef()
@@ -52,13 +52,10 @@ const TradingViewChart = ({
   }, [chartCreated, data, dataPrev, type])
 
   // parese the data and format for tardingview consumption
-  const formattedData = data?.map(entry => {
+  const formattedData = data?.map((entry) => {
     return {
-      time: dayjs
-        .unix(entry.date)
-        .utc()
-        .format('YYYY-MM-DD'),
-      value: parseFloat(entry[field])
+      time: dayjs.unix(entry.date).utc().format('YYYY-MM-DD'),
+      value: parseFloat(entry[field]),
     }
   })
 
@@ -89,65 +86,65 @@ const TradingViewChart = ({
         height: HEIGHT,
         layout: {
           backgroundColor: 'transparent',
-          textColor: textColor
+          textColor: textColor,
         },
         rightPriceScale: {
           scaleMargins: {
             top: topScale,
-            bottom: 0
+            bottom: 0,
           },
-          borderVisible: false
+          borderVisible: false,
         },
         timeScale: {
-          borderVisible: false
+          borderVisible: false,
         },
         grid: {
           horzLines: {
             color: 'rgba(197, 203, 206, 0.5)',
-            visible: false
+            visible: false,
           },
           vertLines: {
             color: 'rgba(197, 203, 206, 0.5)',
-            visible: false
-          }
+            visible: false,
+          },
         },
         crosshair: {
           horzLine: {
             visible: false,
-            labelVisible: false
+            labelVisible: false,
           },
           vertLine: {
             visible: true,
             style: 0,
             width: 2,
             color: 'rgba(32, 38, 46, 0.1)',
-            labelVisible: false
-          }
+            labelVisible: false,
+          },
         },
         localization: {
-          priceFormatter: val => formattedNum(val, true)
-        }
+          priceFormatter: (val) => formattedNum(val, true),
+        },
       })
 
       var series =
         type === CHART_TYPES.BAR
           ? chart.addHistogramSeries({
-              color: '#705240',
+              color: '#52AFFF',
               priceFormat: {
-                type: 'volume'
+                type: 'volume',
               },
               scaleMargins: {
                 top: 0.32,
-                bottom: 0
+                bottom: 0,
               },
-              lineColor: '#705240',
-              lineWidth: 3
+              lineColor: '#52AFFF',
+              lineWidth: 3,
             })
           : chart.addAreaSeries({
-              topColor: '#705240',
-              bottomColor: 'rgba(112, 82, 64, 0)',
-              lineColor: '#705240',
-              lineWidth: 3
+              topColor: '#52AFFF',
+              bottomColor: 'rgba(82, 175, 255, 0)',
+              lineColor: '#8AC9FF',
+              lineWidth: 3,
             })
 
       series.setData(formattedData)
@@ -182,7 +179,7 @@ const TradingViewChart = ({
       setLastBarText()
 
       // update the title when hovering on the chart
-      chart.subscribeCrosshairMove(function(param) {
+      chart.subscribeCrosshairMove(function (param) {
         if (
           param === undefined ||
           param.time === undefined ||
@@ -231,7 +228,7 @@ const TradingViewChart = ({
     topScale,
     type,
     useWeekly,
-    width
+    width,
   ])
 
   // responsiveness
