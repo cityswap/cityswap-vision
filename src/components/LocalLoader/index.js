@@ -17,7 +17,7 @@ const Loader = styled.div`
   width: 100%;
   animation: ${rotate} 800ms linear infinite;
   & > * {
-    width: 72px;
+    width: 150px;
   }
   ${props =>
     props.fill && !props.height
@@ -35,7 +35,7 @@ const LocalLoader = ({ fill }) => {
   return (
     <Loader fill={fill}>
       {/* <img src={require(darkMode ? '../../assets/logo_white.svg' : '../../assets/logo.svg')} alt="loading-icon" /> */}
-      <img src={process.env.PUBLIC_URL + '/cityswap.png'} alt="loading-icon" />
+      <img src={process.env.PUBLIC_URL + '/loading.gif'} alt="loading-icon" />
     </Loader>
   )
 }
